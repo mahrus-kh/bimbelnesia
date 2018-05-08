@@ -1,0 +1,59 @@
+body {
+  padding-top: 30px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 54px;
+  }
+}
+
+.business-header-home {
+  height: 50vh;
+  min-height:350px;
+  background: url('../../assets/image/bimbellearn.png') center center no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.back-color-lbb {
+  background-color: #FCFCFC;
+}
+
+a.card-text-hover:hover {
+  text-decoration: none;
+}
+
+.business-header-cut {
+  height: 35vh;
+  min-height:235px;
+  background: url('../../assets/image/bimbellearn.png') center center no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.business-header-cut-search-page {
+  height: 28vh;
+  min-height:80px;
+  background: url('../../assets/image/bimbellearn.png') center center no-repeat scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.text-user-reviews:hover{
+  text-decoration: none;
+}
+.text-lbb{
+  color: #000000;
+}
+.text-lbb:hover{
+  color: #006687;
+  text-decoration: none;
+}
+

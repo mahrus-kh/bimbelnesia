@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\GuzzleClientController as Client;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+class SubKategoriController extends Controller
+{
+    public function index()
+    {
+        $list_category = Client::listCategory();
+        $list_sub_category = Client::listSubCategory();
+
+        $lembaga = collect(json_decode(Client::client()->get('list-all-lembaga')->getBody())->lembaga);
+
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $currentResults = $lembaga->slice(($currentPage - 1) * 10, 10)->all();
+        $lembaga = New LengthAwarePaginator($currentResults, $lembaga->count(),10);
+
+        return view('pages.sub-kategori.index', compact('list_category','list_sub_category', 'lembaga'));
+    }
+
+    public function show($slug)
+    {
+        $list_category = Client::listCategory();
+        $list_sub_category = Client::listSubCategory();
+
+        $response = Client::client()->get('sub-category/' . $slug);
+        if ($response->getStatusCode() === 204) {
+            return abort(404,'Content Not Found');
+        }
+
+        $lembaga = collect(json_decode($response->getBody())->lembaga);
+
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $currentResults = $lembaga->slice(($currentPage - 1) * 10, 10)->all();
+        $lembaga = New LengthAwarePaginator($currentResults, $lembaga->count(),10);
+
+        return view('pages.sub-kategori.sub-category', compact('list_category','list_sub_category', 'lembaga'));
+    }
+}
