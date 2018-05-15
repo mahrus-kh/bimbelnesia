@@ -68,9 +68,6 @@
                <div class="col-md-12 text-center">- Not Found -</div>
             @endforelse
         </div>
-        <div class="mt-2 mb-4">
-            {{ $lembaga->withPath('makan')->links('templates.partials.pagination') }}
-        </div>
     </div>
     <hr class="featurette-divider">
 @endsection

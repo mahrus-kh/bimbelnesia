@@ -26,10 +26,6 @@ class SearchController extends Controller
 
         $lembaga = collect(json_decode($response->getBody())->lembaga);
 
-        $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        $currentResults = $lembaga->slice(($currentPage - 1) * 15, 15)->all();
-        $lembaga = New LengthAwarePaginator($currentResults, $lembaga->count(),15);
-
         return view('pages.search.search', compact('list_category', 'lembaga'));
     }
 }
