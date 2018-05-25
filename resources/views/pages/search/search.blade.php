@@ -11,7 +11,7 @@
                     <form method="GET" action="{{ route('do.search') }}">
                         <div class="row">
                             <div class="col-md-9 my-2">
-                                <input type="text" name="search" value="{{ request('search') }}" class="form-control-lg form-control" placeholder="Cari : Bimbel SMA, Bahasa Inggris, STAN, Kursus, Les, dll." minlength="2" maxlength="25" required="required">
+                                <input type="text" name="search" value="{{ request('search') }}" class="form-control-lg form-control" placeholder="Cari : Bimbel SMA, Bahasa Inggris, STAN, Kursus, Les, dll." minlength="2" maxlength="50" required="required">
                             </div>
                             <div class="col-md-2 my-2">
                                 <input type="submit" class="btn btn-primary btn-lg btn-block font-weight-bold" VALUE="Temukan">
@@ -27,9 +27,9 @@
     <div class="container mt-2">
         <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb bg-white rounded-0">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Library</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Data</li>
+                <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="">{{ request()->segment(1) }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ request('search') }}</li>
             </ol>
         </nav>
     </div>

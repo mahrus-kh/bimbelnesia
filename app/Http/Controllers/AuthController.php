@@ -39,8 +39,7 @@ class AuthController extends Controller
             'api_token' => $user->api_token
         ]);
 
-        return redirect()->back()->withMessage('Login Success');
-
+        return redirect()->route('home.index');
     }
 
     public function getRegister()

@@ -54,9 +54,6 @@
                                         <span class="badge badge-pill badge-warning font-weight-normal">{{ $category }}</span>
                                     @endforeach
                                 </p>
-                                <p><b>Sub Kategori : </b>
-                                    Bimbel Reguler, Les Privat, Kursus
-                                </p>
                                 <p><b>Website : </b>
                                     <a href="{{ $lembaga->contact->website }}" class="text-dark">{{ $lembaga->contact->website }} &raquo;</a>
                                 </p>
@@ -78,7 +75,7 @@
                         <hr class="featurette-divider">
                         <div class="row mb-1">
                             <div class="col">
-                                <b>Deskripsi : </b> {{ $lembaga->address }}
+                                <b>Deskripsi : </b> {{ $lembaga->description }}
                             </div>
                         </div>
                         <hr class="featurette-divider">
@@ -204,6 +201,9 @@
                             <div class="col-md-1"></div>
                             <div class="col-md-11" id="form-feedback">
                                 @if(session('api_token'))
+                                    @if(session('message'))
+                                        <label class="text-warning">Sudah Memberikan Feedback Sebelumnya</label>
+                                    @endif
                                     <form method="POST" action="{{ route('do.feedback', request()->segment(2)) }}">
                                         {{ csrf_field() }}
                                         {{ method_field('POST') }}
@@ -235,7 +235,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Komentar*</label>
                                             <div class="col-md-8">
-                                                <textarea class="form-control" name="comment" rows="2" minlength="3" maxlength="255" pengalaman pribadi, kelebihan, kekurangan, kritik, saran, dll." required="required"></textarea>
+                                                <textarea class="form-control" name="comment" rows="2" minlength="3" maxlength="255" placeholder="pengalaman pribadi, kelebihan, kekurangan, kritik, saran, dll." required="required"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -248,7 +248,6 @@
                                 @else
                                     Login untuk memberi Feedback & Komentar ! <a href="{{ route('login') }}" class="font-weight-bold">Login Sekarang &raquo;</a>
                                 @endif
-
                             </div>
                         </div>
                         <hr class="featurette-divider">
