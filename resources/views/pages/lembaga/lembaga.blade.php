@@ -108,7 +108,7 @@
                                             <table class="table table-bordered">
                                                 <tbody>
                                                 @php $no = 0 @endphp
-                                                @forelse($lembaga->excellence as $value => $row)
+                                                @forelse($lembaga->excellence as $row)
                                                     <tr>
                                                         <td class="text-center">{{ $no + 1}}</td>
                                                         <td>{{ $row->excellence }}</td>
@@ -136,7 +136,7 @@
                                             <table class="table table-bordered">
                                                 <tbody>
                                                 @php $no = 0 @endphp
-                                                @forelse($lembaga->facility as $value => $row)
+                                                @forelse($lembaga->facility as $row)
                                                     <tr>
                                                         <td class="text-center">{{ $no + 1}}</td>
                                                         <td>{{ $row->facility }}</td>
@@ -171,7 +171,7 @@
                                                 </thead>
                                                 <tbody>
                                                 @php $no = 0 @endphp
-                                                @forelse($lembaga->study_program as $value => $row)
+                                                @forelse($lembaga->study_program as $row)
                                                     <tr>
                                                         <td class="text-center">{{ $no + 1}}</td>
                                                         <td>{{ $row->study_program }}</td>
@@ -202,7 +202,7 @@
                             <div class="col-md-11" id="form-feedback">
                                 @if(session('api_token'))
                                     @if(session('message'))
-                                        <label class="text-warning">Sudah Memberikan Feedback Sebelumnya</label>
+                                        <label class="text-warning">{{ session('message') }}</label>
                                     @endif
                                     <form method="POST" action="{{ route('do.feedback', request()->segment(2)) }}">
                                         {{ csrf_field() }}
@@ -235,7 +235,7 @@
                                         <div class="form-group row">
                                             <label class="col-md-2 col-form-label">Komentar*</label>
                                             <div class="col-md-8">
-                                                <textarea class="form-control" name="comment" rows="2" minlength="3" maxlength="255" placeholder="pengalaman pribadi, kelebihan, kekurangan, kritik, saran, dll." required="required"></textarea>
+                                                <textarea class="form-control" name="comment" rows="2" minlength="3" maxlength="250" placeholder="pengalaman pribadi, kelebihan, kekurangan, kritik, saran, dll." required="required"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -252,8 +252,29 @@
                         </div>
                         <hr class="featurette-divider">
                         <h5 class="card-title" id="user_reviews">Feedback & Komentar</h5>
-                        <div class="alert alert-light" role="alert">
-                            <h6 class="text-dark text-center">Coming Soon</h6>
+                        <div class="card">
+                            <div class="card-body">
+                                @forelse($lembaga->feedback as $row)
+                                    <text class="text-primary">
+                                        {{ $row->name_user }}
+                                    </text>
+                                    <p> &raquo; @for($i=0;$i<5;$i++)
+                                            @if( $row->rating >= 1)
+                                                <i class="fa fa-star text-warning"></i>
+                                            @elseif ( $row->rating >= 0.5 &&  $row->rating < 1  )
+                                                <i class="fa fa-star-half-o text-warning"></i>
+                                            @elseif( $row->rating < 0.5)
+                                                <i class="fa fa-star-o text-warning"></i>
+                                            @endif
+                                            @php  $row->rating =   $row->rating - 1; @endphp
+                                        @endfor
+                                        {{ $row->comment }}
+                                    </p>
+                                    <hr>
+                                @empty
+                                    <h6 class="text-dark text-center">Belum Ditemukan - Jadilah yang Pertama Memberikan Feedback</h6>
+                                @endforelse
+                            </div>
                         </div>
                     </div>
                 </div>

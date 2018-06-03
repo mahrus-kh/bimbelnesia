@@ -7,8 +7,8 @@
             </div>
             <div class="col">
                 <h4 class="text-primary">Informasi</h4>
-                &raquo; <a href="#" class="text-dark">Tentang BimbelNesia</a> <br>
-                &raquo; <a href="#" class="text-dark">Sumber & Pengolahan Data</a> <br>
+                &raquo; <a href="{{ route('page.about') }}" class="text-dark">Tentang BimbelNesia</a> <br>
+                &raquo; <a href="{{ route('page.sumber.pengolahan.data') }}" class="text-dark">Sumber & Pengolahan Data</a> <br>
                 &raquo; <a href="#" class="text-dark">Ketentuan Layanan & Privasi</a> <br>
             </div>
             <div class="col">

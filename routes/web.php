@@ -15,21 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', 'HomeController@index')->name('home.index');
+Route::get('/', 'HomeController@index')->name('home.index');
 
 Route::get('get-recommendation', 'RecommendationController@getRecommendation')->name('get.recommendation');
 
 Route::get('logout', 'AuthController@doLogout')->name('do.logout');
 
 Route::middleware('check.login')->group(function (){
-
     Route::get('login', 'AuthController@getLogin')->name('login')->middleware('guest');
     Route::post('login', 'AuthController@doLogin')->name('do.login');
     Route::get('register', 'AuthController@getRegister')->name('register');
     Route::post('register', 'AuthController@doRegister')->name('do.register');
     Route::get('reset-password', 'AuthController@getResetPassword')->name('reset.password');
     Route::post('reset-password', 'AuthController@doResetPassword')->name('do.reset.password');
-
 });
 
 Route::get('search', 'SearchController@doSearch')->name('do.search');
@@ -47,4 +45,5 @@ Route::get('lembaga/{slug}', 'LembagaController@show')->name('lembaga.show');
 
 Route::post('lembaga/{slug}/feedback', 'FeedbackController@doFeedback')->name('do.feedback');
 
-Route::get('cobasatu', 'CobaGuzzleController@cobaSatu');
+Route::get('tentang', 'InformationController@pageAbout')->name('page.about');
+Route::get('sumber-pengolahan-data', 'InformationController@pageSumberPengolahanData')->name('page.sumber.pengolahan.data');

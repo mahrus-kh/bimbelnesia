@@ -23,9 +23,9 @@ class FeedbackController extends Controller
         ]);
 
         if ($response->getStatusCode() === 204){
-            return redirect()->back()->withMessage('Komentar Gagal !');
+            return redirect()->back()->withMessage('Sudah Memberikan Feedback Sebelumnya');
         }
 
-        return redirect()->back();
+        return redirect()->back()->withMessage('Berhasil Memberikan Feedback');
     }
 }
