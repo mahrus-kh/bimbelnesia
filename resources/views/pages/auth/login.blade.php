@@ -6,6 +6,7 @@
     <title>Login - BimbelNesia</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/modify/auth.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
     {{--Top Menu--}}
@@ -53,6 +54,12 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    Atau masuk dengan <br>
+                    <button type="button" class="btn btn-outline-info"><i class="fa fa-twitter fa-2x"></i></button>
+                    <button type="button" class="btn btn-outline-danger"><i class="fa fa-google fa-2x"></i></button>
+                    <button type="button" class="btn btn-outline-primary"><i class="fa fa-facebook fa-2x"></i></button>
+                    <button type="button" class="btn btn-outline-warning"><i class="fa fa-instagram fa-2x"></i></button>
                     <hr>
                     Belum Punya Akun ?  <a href="{{ route('register') }}" class="font-weight-bold">Daftar Sekarang &raquo;</a> <br>
                     Atau <a href="#" class="font-weight-bold">Login Pengelola Lembaga &raquo;</a>
