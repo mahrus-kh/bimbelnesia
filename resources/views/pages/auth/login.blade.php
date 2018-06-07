@@ -56,10 +56,10 @@
                     </form>
                     <hr>
                     Atau masuk dengan <br>
-                    <button type="button" class="btn btn-outline-info"><i class="fa fa-twitter fa-2x"></i></button>
-                    <button type="button" class="btn btn-outline-danger"><i class="fa fa-google fa-2x"></i></button>
-                    <button type="button" class="btn btn-outline-primary"><i class="fa fa-facebook fa-2x"></i></button>
-                    <button type="button" class="btn btn-outline-warning"><i class="fa fa-instagram fa-2x"></i></button>
+                    <a href="{{ route('oauth.provider.redirect', 'twitter') }}" class="btn btn-outline-info"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a href="{{ route('oauth.provider.redirect', 'google') }}" class="btn btn-outline-danger"><i class="fa fa-google fa-2x"></i></a>
+                    <a href="{{ route('oauth.provider.redirect', 'facebook') }}" class="btn btn-outline-primary"><i class="fa fa-facebook fa-2x"></i></a>
+                    <a href="{{ route('oauth.provider.redirect', 'instagram') }}" class="btn btn-outline-warning"><i class="fa fa-instagram fa-2x"></i></a>
                     <hr>
                     Belum Punya Akun ?  <a href="{{ route('register') }}" class="font-weight-bold">Daftar Sekarang &raquo;</a> <br>
                     Atau <a href="#" class="font-weight-bold">Login Pengelola Lembaga &raquo;</a>

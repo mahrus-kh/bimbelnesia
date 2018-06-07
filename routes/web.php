@@ -30,6 +30,10 @@ Route::middleware('check.login')->group(function (){
     Route::post('reset-password', 'AuthController@doResetPassword')->name('do.reset.password');
 });
 
+
+Route::get('oauth/{provider}', 'OAuthController@redirectToProvider')->name('oauth.provider.redirect');
+Route::get('oauth/{provider}/callback', 'OAuthController@handleProviderCallback')->name('oauth.provider.callback');
+
 Route::get('search', 'SearchController@doSearch')->name('do.search');
 
 Route::get('kategori', 'KategoriController@index')->name('kategori.index');
