@@ -19,6 +19,7 @@ class OAuthController extends Controller
 
         $response = Client::client()->post('oauth', [
            'form_params' => [
+               'nickname' => $user->nickname,
                'name' => $user->name,
                'email' => $user->email,
                'provider_id' => $user->id,
