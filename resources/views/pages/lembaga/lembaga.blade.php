@@ -24,9 +24,10 @@
                         <div class="card-text mb-2">
                             <i span class="fa fa-eye text-warning"></i> {{ $lembaga->total_views }}
                             | <i span class="fa fa-comment text-warning"></i> {{ $lembaga->total_comments }}
-                            | Share :  <a href="#" class="btn btn-secondary btn-sm border-0">Facebook</a>
-                            <a href="#" class="btn btn-secondary btn-sm border-0">Instagram</a>
-                            <a href="#" class="btn btn-secondary btn-sm border-0">Email</a>
+                            | Share :
+                            @foreach($social_share as $social => $link)
+                                <a href="{{ $link }}" class="btn btn-secondary btn-sm border-0">{{ strtoupper($social) }}</a>
+                            @endforeach
                         </div>
                         <div class="card-text mb-2">Rating
                             <b class="text-warning">{{ $lembaga->rating }}
